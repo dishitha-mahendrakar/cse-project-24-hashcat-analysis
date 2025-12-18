@@ -1,4 +1,4 @@
-# CYBER SECURITY PROJECT  
+# Project 24: Advanced Password Cracking Analysis Lab using Hashcat
 **PES UNIVERSITY**  
 **Department of Computer Science and Engineering**
 
@@ -25,7 +25,7 @@
 
 ---
 
-## Project 24: Advanced Password Cracking Analysis Lab using Hashcat
+## 
 
 ### Concept
 A controlled environment to study how password cracking tools operate and how rule sets affect cracking speed and success.
