@@ -41,4 +41,33 @@ This project studies:
 - Derive practical **defensive security insights**
 
 ---
+## 🎯 Repo structure
 
+project24-hashcat-lab/
+├── backend/                   # Run on Kali
+│   ├── server.js
+│   ├── package.json
+│   ├── wordlist.txt
+│   ├── hashes.txt             # auto-created
+│   ├── rules.rule             # auto-created
+│   ├── rules.json             # auto-created
+│   ├── result.txt             # auto-created
+│   ├── time.txt               # auto-created
+│   └── history.json           # auto-created
+├── frontend/                  # Run on macOS
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── index.html
+│   ├── .env.example
+│   └── src/
+│       ├── main.jsx
+│       ├── App.jsx
+│       ├── index.css
+│       ├── services/api.js
+│       └── components/
+│           ├── HashGenerator.jsx
+│           ├── RuleDesigner.jsx
+│           ├── HashcatRunner.jsx
+│           ├── ResultsViewer.jsx
+│           └── RuleComparison.jsx
+└── README.md
