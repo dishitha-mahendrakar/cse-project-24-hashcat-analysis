@@ -1,8 +1,12 @@
-# PES University
-## Department of Computer Science and Engineering
+**PES University**  
+**Department of Computer Science and Engineering**
 
-### UE25CS645A : Cyber Security Essentials  
-#### Project 24: Advanced Password Cracking Analysis Lab using Hashcat
+---
+
+# Advanced Password Cracking Analysis Lab using Hashcat
+
+**Course:** UE25CS645A – Cyber Security Essentials  
+**Project Number:** 24
 
 ---
 
@@ -49,18 +53,18 @@ A controlled environment to study how password cracking tools operate and how ru
 ---
 
 ### Main Modules
-- **Hash Generator** – Produces test hashes from known passwords
-- **Rule Designer** – Allows students to specify mutation strategies (append digits, leetspeak, etc.)
-- **Result Importer** – Parses Hashcat output files
-- **Visualization Module** – Generates charts of success rate vs. rule set
-- **Guided Report Generator** – Summarises findings
+- **Hash Generator** – Produces test hashes from known passwords  
+- **Rule Designer** – Defines mutation strategies (append digits, leetspeak, etc.)  
+- **Result Importer** – Parses Hashcat output  
+- **Visualization Module** – Generates success-rate charts  
+- **Guided Report Generator** – Summarises findings  
 
 ---
 
 ### Learning Component
-Because each student designs unique rule sets and uses their own hashes, the lab remains ethical and AI-proof while teaching real attack mechanics.
+Each student designs unique rule sets and uses their own hashes, keeping the lab ethical and AI-proof while demonstrating real attack mechanics.
 
 ---
 
 ### Use Case / Purpose
-Illustrates why strong password policies and salting are critical for cyber security defence.
+Demonstrates why strong password policies and salting are essential for cyber security defence.
