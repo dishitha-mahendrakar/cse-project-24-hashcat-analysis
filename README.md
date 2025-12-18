@@ -44,7 +44,7 @@ This project studies:
 ## 🎯 Repo structure
 
 project24-hashcat-lab/
-├── backend/                   # Run on Kali
+├── backend/                   # Run on Kali /
 │   ├── server.js
 │   ├── package.json
 │   ├── wordlist.txt
