@@ -72,7 +72,7 @@ Demonstrates why strong password policies and salting are essential for cyber se
 ---
 
 ### Repo Structure
-
+```
 project24-hashcat-lab/
 ├── backend/                   # Run on Kali
 │   ├── server.js
@@ -104,4 +104,4 @@ project24-hashcat-lab/
 │           └── RuleComparison.jsx
 │
 └── README.md
-
+```
