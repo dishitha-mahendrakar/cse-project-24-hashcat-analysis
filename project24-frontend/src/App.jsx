@@ -1,4 +1,5 @@
-import { useState } from "react";
+//import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import Navbar from "./components/NavBar";
@@ -14,6 +15,12 @@ import AttackCharts from "./components/AttackCharts"; // ✅ NEW
 export default function App() {
   const [attackCounter, setAttackCounter] = useState(0);
   const [attackType, setAttackType] = useState("SHA-256"); // ✅ NEW
+  useEffect(() => {
+  fetch("/api/health")
+    .then(r => r.json())
+    .then(data => console.log("Backend health:", data))
+    .catch(err => console.error("Backend not reachable:", err));
+}, []);
 
   return (
     <div>
