@@ -102,33 +102,31 @@ app.post("/save-rules", (req, res) => {
 // 3. Run Hashcat
 // -------------------------------
 app.post("/run-hashcat", (req, res) => {
-  console.log("[+] /run-hashcat called");
+  const { attackType = "SHA-256" } = req.body || {};
+
+  const modeMap = {
+    "MD5": 0,
+    "SHA-1": 100,
+    "SHA-256": 1400,
+    "NTLM": 1000,
+  };
+
+  const hashMode = modeMap[attackType] ?? 1400;
+
+  // dictionary + rules attack
+  const cmd = `hashcat -m ${hashMode} -a 0 hashes.txt wordlist.txt -r rules.rule --outfile=result.txt --potfile-disable --force`;
 
   const startTime = Date.now();
 
-  const cmd =
-  "hashcat -m 1400 hashes.txt wordlist.txt --outfile=result.txt --potfile-disable --force";
-
-// If rockyou.txt is added then the cracking of the passwordwill increase
   exec(cmd, (error, stdout, stderr) => {
-    const endTime = Date.now();
-    const timeTaken = ((endTime - startTime) / 1000).toFixed(2);
+    const timeTaken = ((Date.now() - startTime) / 1000).toFixed(2);
 
-    console.log("STDOUT:\n", stdout);
-    console.log("STDERR:\n", stderr);
-
-    // ❗ DO NOT treat hashcat exit as fatal
     fs.writeFileSync("time.txt", timeTaken);
+    fs.writeFileSync("last_attack.json", JSON.stringify({ attackType, hashMode, time: timeTaken }, null, 2));
 
-    console.log(`[+] Hashcat finished in ${timeTaken}s`);
-
-    res.json({
-      message: "Hashcat execution finished",
-      time: timeTaken
-    });
+    res.json({ message: "Hashcat execution finished", attackType, time: timeTaken });
   });
 });
-
 
 
 // -------------------------------
@@ -137,20 +135,19 @@ app.post("/run-hashcat", (req, res) => {
 app.get("/results", (req, res) => {
   if (!fs.existsSync("result.txt")) return res.json([]);
 
-  const time = fs.existsSync("time.txt")
-    ? fs.readFileSync("time.txt", "utf-8")
-    : "N/A";
+  const time = fs.existsSync("time.txt") ? fs.readFileSync("time.txt", "utf-8") : "N/A";
+  const rules = fs.existsSync("rules.json") ? JSON.parse(fs.readFileSync("rules.json", "utf-8")) : {};
 
-  const rules = fs.existsSync("rules.json")
-    ? JSON.parse(fs.readFileSync("rules.json", "utf-8"))
-    : {};
+  const last = fs.existsSync("last_attack.json")
+    ? JSON.parse(fs.readFileSync("last_attack.json", "utf-8"))
+    : { attackType: "SHA-256" };
 
   const results = fs.readFileSync("result.txt", "utf-8")
     .split("\n")
     .filter(Boolean)
-    .map(line => {
+    .map((line) => {
       const [hash, password] = line.split(":");
-      return { hash, password, time, rules };
+      return { hash, password, time, rules, attackType: last.attackType };
     });
 
   res.json(results);
