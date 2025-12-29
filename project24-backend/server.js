@@ -163,4 +163,14 @@ app.listen(5000, "0.0.0.0", () => {
   console.log("Backend API running on port 5000");
 });
 
+//------------ (for checking connection)
+app.get("/",(req,res) =>{
+	res.send("Backend alive");
+});
+
+app.get("/health",(req,res)=> {
+res.json({ok:true});
+});
+
+
 
