@@ -1,0 +1,65 @@
+[
+  {
+    "attackType": "MD5",
+    "mode": 0,
+    "time": "0.27",
+    "timestamp": "2025-12-27T10:44:57.819Z"
+  },
+  {
+    "attackType": "SHA-256",
+    "mode": 1400,
+    "time": "3.26",
+    "timestamp": "2025-12-27T10:45:37.433Z"
+  },
+  {
+    "attackType": "SHA-256",
+    "mode": 1400,
+    "time": "3.09",
+    "timestamp": "2025-12-27T10:46:10.821Z"
+  },
+  {
+    "attackType": "MD5",
+    "mode": 0,
+    "time": "0.23",
+    "timestamp": "2025-12-27T10:47:17.928Z"
+  },
+  {
+    "attackType": "SHA-256",
+    "mode": 1400,
+    "time": "3.03",
+    "timestamp": "2025-12-27T10:47:30.382Z"
+  },
+  {
+    "attackType": "Hybrid",
+    "mode": 1400,
+    "time": "3.13",
+    "timestamp": "2025-12-27T10:47:51.405Z"
+  },
+  {
+    "attackType": "MD5",
+    "mode": 0,
+    "time": "0.33",
+    "timestamp": "2025-12-27T10:47:58.750Z"
+  },
+  {
+    "attackType": "SHA-256",
+    "mode": 1400,
+    "time": 3.12,
+    "ruleCount": 0,
+    "timestamp": "2025-12-27T11:03:37.426Z"
+  },
+  {
+    "attackType": "Hybrid",
+    "mode": 1400,
+    "time": 8.12,
+    "ruleCount": 0,
+    "timestamp": "2025-12-29T07:37:35.066Z"
+  },
+  {
+    "attackType": "SHA-256",
+    "mode": 1400,
+    "time": 4.11,
+    "ruleCount": 0,
+    "timestamp": "2025-12-29T07:38:14.253Z"
+  }
+]
