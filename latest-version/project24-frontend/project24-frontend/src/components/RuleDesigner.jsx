@@ -33,13 +33,32 @@ export default function RuleDesigner() {
   };
 
   const saveRules = async () => {
-    if (!selected.length) {
-      setStatus("⚠ Select at least one rule");
-      return;
-    }
-    await api.post("/save-rules", { rules: selected });
-    setStatus("✅ Rules saved in Kali Linux");
+  if (!selected.length) {
+    setStatus("⚠ Select at least one rule");
+    return;
+  }
+
+  const payload = {
+    capitalize: selected.includes("c"),
+    lowercase: selected.includes("l"),
+    appendDigits: selected.includes("$1$2$3"),
+    prependDigits: selected.includes("^1"),
+    appendYear: selected.includes("$2$0$2$4"),
+    leetspeak: selected.includes("sa@ se3 so0"),
+    reverse: selected.includes("r"),
+    duplicate: selected.includes("d"),
+    toggleCase: selected.includes("t"),
   };
+
+  try {
+    await api.post("/save-rules", payload);
+    setStatus("✅ Rules saved in Kali Linux");
+  } catch (err) {
+    console.error(err);
+    setStatus("❌ Failed to save rules (check backend + network)");
+  }
+  };
+
 
   return (
     <div className="glass-panel rule-engine">
